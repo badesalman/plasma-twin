@@ -199,8 +199,3 @@ Full list: [docs/limitations.md](docs/limitations.md). In short:
 * Reflection coefficient, VSWR and a matching-network model.
 * Validation on real voltage-current probe or network-analyser data, including calibration and systematic errors.
 
-## Development note
-
-This project was developed with the assistance of an AI model (Claude, by Anthropic). All tests and experiments were run locally by the author,
-who reviewed the results; the numbers reported above are the actual outputs of the scripts in this repository.
-
