@@ -156,4 +156,4 @@ idealised voltage source, modelled (not calibrated) noise, first-order Kalman co
 ## Development note
 
 This project was developed step by step with an AI assistant (Claude, Anthropic): the assistant wrote and explained code, and the author ran the
-tests and experiments locally and reviewed the results. *(Edit this note to match the rules of the programme you are applying to.)*
+tests and experiments locally and reviewed the results.
