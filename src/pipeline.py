@@ -5,7 +5,8 @@ Keeps this orchestration out of the UI and out of the experiment scripts.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from collections.abc import Iterable
+from dataclasses import dataclass, replace
 
 import numpy as np
 import pandas as pd
@@ -92,3 +93,30 @@ def run_experiment(
         events_direct=event_detection_metrics(sim.anomaly_true, det_d.alarm, grace_steps),
         events_kalman=event_detection_metrics(sim.anomaly_true, det_k.alarm, grace_steps),
     )
+
+
+def compare_over_seeds(
+    sim_config: SimulationConfig,
+    seeds: Iterable[int],
+    kalman_config: KalmanConfig | None = None,
+    anomaly_config: AnomalyConfig | None = None,
+    assumed_noise: NoiseConfig | None = None,
+) -> pd.DataFrame:
+    """Run the same configuration for several seeds and tabulate the complex-impedance RMSE.
+
+    A single seed can be misleading (the filter may win or lose by chance), so this
+    gives the distribution of the direct-vs-Kalman comparison for one configuration.
+    """
+    seed_list = [int(s) for s in seeds]
+    if not seed_list:
+        raise ValueError("at least one seed is required")
+    rows = []
+    for seed in seed_list:
+        res = run_experiment(
+            replace(sim_config, seed=seed), kalman_config, anomaly_config, assumed_noise
+        )
+        d, k = res.metrics_direct.rmse_z_ohm, res.metrics_kalman.rmse_z_ohm
+        rows.append(
+            {"seed": seed, "rmse_z_direct_ohm": d, "rmse_z_kalman_ohm": k, "kalman_better": bool(k < d)}
+        )
+    return pd.DataFrame(rows)
