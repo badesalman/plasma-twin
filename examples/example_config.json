@@ -1,0 +1,26 @@
+{
+  "frequency_hz": 13560000.0,
+  "v_rms_v": 100.0,
+  "resistance_ohm": 10.0,
+  "inductance_h": 1.2e-06,
+  "capacitance_f": 1.5e-10,
+  "n_steps": 600,
+  "dt_s": 0.01,
+  "scenario": "step",
+  "noise": {
+    "v_rel_std": 0.02,
+    "i_rel_std": 0.02,
+    "phase_std_rad": 0.017453292519943295
+  },
+  "seed": 42,
+  "baseline_steps": 50,
+  "event_start_fraction": 0.5,
+  "event_r_factor": 1.5,
+  "event_l_factor": 1.04,
+  "drift_r_fraction": 0.5,
+  "drift_l_fraction": 0.05,
+  "noise_ramp_factor": 4.0,
+  "n_pulses": 3,
+  "pulse_steps": 30,
+  "label_tolerance": 0.1
+}
