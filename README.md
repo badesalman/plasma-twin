@@ -48,7 +48,7 @@ Python 3.11+, NumPy, SciPy, Pandas, Plotly, Streamlit, Pytest. No cloud services
 
 ## Mathematical model
 
-$$X = \omega L - \frac{1}{\omega C},\qquad Z = R + jX,\qquad |Z| = \frac{V_{rms}}{I_{rms}},\qquad \varphi = \operatorname{atan2}(X, R)$$
+$$X = \omega L - \frac{1}{\omega C},\qquad Z = R + jX,\qquad |Z| = \frac{V_{rms}}{I_{rms}},\qquad \varphi = \mathrm{atan2}(X, R)$$
 
 $$R_{est} = |Z_{est}|\cos\varphi_m,\qquad X_{est} = |Z_{est}|\sin\varphi_m$$
 

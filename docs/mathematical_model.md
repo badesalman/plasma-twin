@@ -33,7 +33,7 @@ These are illustrative values chosen for a readable simulation, not measurements
 
 ## 2. Voltage, current, phase
 
-$$|Z| = \sqrt{R^2 + X^2},\qquad \varphi = \operatorname{atan2}(X, R),\qquad I_{rms} = \frac{V_{rms}}{|Z|}$$
+$$|Z| = \sqrt{R^2 + X^2},\qquad \varphi = \mathrm{atan2}(X, R),\qquad I_{rms} = \frac{V_{rms}}{|Z|}$$
 
 $\varphi$ is the phase of the voltage relative to the current. Real power in the load: $P = V_{rms} I_{rms}\cos\varphi = I_{rms}^2 R$.
 
@@ -120,7 +120,7 @@ Terminology: **true disturbance** = simulator ground truth (true $|Z|$ deviates 
 
 ## 8. Metrics
 
-* RMSE, MAE of R and X; RMSE of $Z$: $\sqrt{\operatorname{mean}|Z_{est} - Z_{true}|^2}$.
+* RMSE, MAE of R and X; RMSE of $Z$: $\sqrt{\mathrm{mean}|Z_{est} - Z_{true}|^2}$.
 * Relative RMSE = RMSE / RMS(true). Undefined (reported as `undefined`) if the true signal is zero.
 * Sample level: precision, recall, F1, false-positive rate; undefined when the denominator is zero.
 * Event level: a true event is detected if an alarm occurs inside it (plus a grace period); delay = first alarm − event start;
